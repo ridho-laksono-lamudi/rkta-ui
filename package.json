@@ -11,7 +11,7 @@
     "lib:watch": "babel src -w -d lib --copy-files",
     "lint": "eslint src --ext .js,.jsx",
     "prettify": "prettier --write src/**/*.js*",
-    "prepublish": "npm run lib",
+    "prepare": "npm run lib",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
