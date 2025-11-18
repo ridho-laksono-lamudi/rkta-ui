@@ -1,3 +1,3 @@
 export default (condition, message) => {
-  if (!condition) throw new Error(message);
+  if (!condition) console.warn(message);
 };

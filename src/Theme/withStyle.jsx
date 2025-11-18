@@ -7,18 +7,6 @@ import invariant from '../util/invariant';
 const modifyStyles = (context, { children, ...props }, element, ref) => {
   const { defaultStyle, ...styles } = context.theme[element];
 
-  // const nextProps = {};
-  // const nextStyle = { ...defaultStyle };
-
-  // const keys = Object.keys(props);
-
-  // for (let i = 0; i < keys.length; i += 1) {
-  //   const key = keys[i];
-  //   const value = props[key];
-  //   if (value === true && key in styles) Object.assign(nextStyle, styles[key]);
-  //   else if (!(key in styles)) nextProps[key] = value;
-  // }
-
   const { nextStyle, nextProps } = Object.keys(props).reduce(
     (acc, key) => {
       const value = props[key];
