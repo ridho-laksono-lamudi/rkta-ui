@@ -45,10 +45,7 @@ const withStyle = (Element, key) => {
   const WithStyle = forwardRef((props, ref) => (
     <Context.Consumer>
       {({ modifyElement, providerIsMissing, ...context }) => {
-        invariant(
-          !providerIsMissing,
-          `Please use the Provider. Component: ${key || displayName}`
-        );
+        invariant(!providerIsMissing, `Please use the Provider. Component: ${key || displayName}`);
         const render = modifyElement || defaultRenderrer;
         return render(Element, pickProps(context, props, key || displayName, ref));
       }}
