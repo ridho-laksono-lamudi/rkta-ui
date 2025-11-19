@@ -25,6 +25,8 @@ const ListItem = forwardRef(
 );
 
 ListItem.displayName = 'ListItem';
+// @ts-ignore - React's ForwardRefExoticComponent.propTypes is marked deprecated in
+// TypeScript types, but runtime PropTypes validation is still used in this project.
 ListItem.propTypes = {
   BaseElement: PropTypes.oneOfType([
     PropTypes.elementType,

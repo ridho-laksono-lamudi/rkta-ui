@@ -22,6 +22,8 @@ const modifyProps = ({ css, rize, size, theme, ...props }) => {
 const Paper = forwardRef((props, ref) => <Font atomRef={ref} {...modifyProps(props)} />);
 
 Paper.displayName = 'Paper';
+// @ts-ignore - React's ForwardRefExoticComponent.propTypes is marked deprecated in
+// TypeScript types, but runtime PropTypes validation is still used in this project.
 Paper.propTypes = {
   rize: PropTypes.number,
   size: PropTypes.number,

@@ -16,6 +16,8 @@ const Font = forwardRef(({ children, getColor, color, ...rest }, ref) => (
 ));
 
 Font.displayName = 'Font';
+// @ts-ignore - React's ForwardRefExoticComponent.propTypes is marked deprecated in
+// TypeScript types, but runtime PropTypes validation is still used in this project.
 Font.propTypes = {
   children: PropTypes.node,
   color: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
