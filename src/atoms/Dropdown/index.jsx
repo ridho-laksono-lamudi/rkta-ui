@@ -27,11 +27,11 @@ const knownStates = [
 const Dropdown = ({
   bindTo,
   children,
-  onExit,
-  onBeginExit,
-  onReadyState,
-  placement,
-  state,
+  onExit = undefined,
+  onBeginExit = undefined,
+  onReadyState = undefined,
+  placement = DROPDOWN_PALCEMENT_BL,
+  state = DROPDOWN_STATE_DISABLED,
   ...rest
 }) => {
   const bodyNode = getBodyNode();
@@ -71,12 +71,6 @@ Dropdown.propTypes = {
   placement: PropTypes.string,
   state: PropTypes.oneOf(knownStates),
 };
-Dropdown.defaultProps = {
-  placement: DROPDOWN_PALCEMENT_BL,
-  state: DROPDOWN_STATE_DISABLED,
-  onBeginExit: undefined,
-  onExit: undefined,
-  onReadyState: undefined,
-};
+// default values are provided via function parameters
 
 export default Dropdown;

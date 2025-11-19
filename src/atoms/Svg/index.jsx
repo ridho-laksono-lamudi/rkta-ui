@@ -4,10 +4,19 @@ import PropTypes from 'prop-types';
 import Atom from '../Atom';
 import withStyle from '../../Theme/withStyle';
 
-const Svg = ({ children, color, css, getColor, size, ...rest }) => (
+const Svg = ({
+  children,
+  color = null,
+  css,
+  getColor,
+  size = 24,
+  viewBox = '0 0 20 20',
+  ...rest
+}) => (
   <Atom
     {...rest}
     element="svg"
+    viewBox={viewBox}
     css={{
       fill: color ? getColor(color) : 'currentColor',
       height: `${size}px`,
@@ -27,11 +36,7 @@ Svg.propTypes = {
   size: PropTypes.number,
   viewBox: PropTypes.string,
 };
-Svg.defaultProps = {
-  color: null,
-  size: 24,
-  viewBox: '0 0 20 20',
-};
+// default values provided via function parameters
 Svg.displayName = 'Svg';
 
 export default withStyle(Svg);

@@ -17,7 +17,9 @@ const getBoxCss = (css, x, y) =>
     WebkitOverflowScrolling: 'touch',
   });
 
-const ScrollBox = ({ css, x, y, ...rest }) => <Atom {...rest} css={getBoxCss(css, x, y)} />;
+const ScrollBox = ({ css = null, x = false, y = false, ...rest }) => (
+  <Atom {...rest} css={getBoxCss(css, x, y)} />
+);
 
 ScrollBox.displayName = 'ScrollBox';
 ScrollBox.propTypes = {
@@ -26,10 +28,6 @@ ScrollBox.propTypes = {
   x: PropTypes.bool,
   y: PropTypes.bool,
 };
-ScrollBox.defaultProps = {
-  css: null,
-  x: false,
-  y: false,
-};
+// default values provided via function params
 
 export default ScrollBox;

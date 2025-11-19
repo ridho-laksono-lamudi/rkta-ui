@@ -20,6 +20,7 @@
     camelcase: off
     prettier/prettier: error
     react/destructuring-assignment: off
+    react/require-default-props: off
     react/jsx-one-expression-per-line: off
     react/jsx-wrap-multilines: off
     import/prefer-default-export: off

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import Paper from '../Paper';
 import withStyle from '../../Theme/withStyle';
 
-const Bage = ({ fitAll, fitLeft, fitRight, ...rest }) => (
-  <Paper rounded overline nowrap {...rest} />
+const Bage = ({ fitAll = false, fitLeft = false, fitRight = false, ...rest }) => (
+  <Paper {...{ fitAll, fitLeft, fitRight, ...rest }} rounded overline nowrap />
 );
 
 Bage.displayName = 'Bage';
@@ -17,11 +17,7 @@ Bage.propTypes = {
   /** Reset Right Margin */
   fitRight: PropTypes.bool,
 };
-Bage.defaultProps = {
-  fitAll: false,
-  fitLeft: false,
-  fitRight: false,
-};
+// Default values are provided via function parameters
 
 export const RawBage = Bage;
 

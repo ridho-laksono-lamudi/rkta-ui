@@ -7,13 +7,13 @@ import Font from '../../../atoms/Font';
 import withStyle from '../../../Theme/withStyle';
 
 const InputBase = ({
-  color,
-  css,
+  color = null,
+  css = {},
   hasFocus,
-  label,
+  label = undefined,
   labelIsActive,
-  outlined,
-  placeholder,
+  outlined = false,
+  placeholder = null,
   setLabelWidth,
   value,
   ...rest
@@ -45,12 +45,6 @@ InputBase.propTypes = {
   setLabelWidth: PropTypes.func.isRequired,
   value: PropTypes.node.isRequired,
 };
-InputBase.defaultProps = {
-  css: {},
-  color: null,
-  outlined: false,
-  placeholder: null,
-  label: undefined,
-};
+// Default values provided via function params
 
 export default withStyle(InputBase);

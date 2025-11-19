@@ -19,7 +19,9 @@ const modifyProps = ({ css, rize, size, theme, ...props }) => {
   return { element: 'div', ...props, css: { ...nextCss, ...css } };
 };
 
-const Paper = forwardRef((props, ref) => <Font atomRef={ref} {...modifyProps(props)} />);
+const Paper = forwardRef(({ rize = 0, size = 0, ...props }, ref) => (
+  <Font atomRef={ref} {...modifyProps({ rize, size, ...props })} />
+));
 
 Paper.displayName = 'Paper';
 // @ts-ignore - React's ForwardRefExoticComponent.propTypes is marked deprecated in
@@ -28,9 +30,6 @@ Paper.propTypes = {
   rize: PropTypes.number,
   size: PropTypes.number,
 };
-Paper.defaultProps = {
-  rize: 0,
-  size: 0,
-};
+// default values set via function params
 
 export default withStyle(Paper);

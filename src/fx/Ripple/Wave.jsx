@@ -27,7 +27,7 @@ const getStyle = (released, css) => {
   return { ...defaultCss, ...css };
 };
 
-const Wave = ({ css, onDissolve, released, size }) => (
+const Wave = ({ css, onDissolve = undefined, released = false, size }) => (
   <Paper
     element="span"
     css={getStyle(released, css)}
@@ -44,9 +44,6 @@ Wave.propTypes = {
   size: PropTypes.number.isRequired,
   css: PropTypes.shape().isRequired,
 };
-Wave.defaultProps = {
-  onDissolve: undefined,
-  released: false,
-};
+// default values are provided via function parameters
 
 export default Wave;

@@ -5,8 +5,8 @@ import Atom from '../../../../atoms/Atom';
 import Font from '../../../../atoms/Font';
 import withStyle from '../../../../Theme/withStyle';
 
-const ListItemBody = ({ children, text, caption, href, ...rest }) => (
-  <Atom element="span" {...rest}>
+const ListItemBody = ({ children = null, text = null, caption = null, href = null, ...rest }) => (
+  <Atom element="span" {...{ href, ...rest }}>
     {children || (
       <Fragment>
         {text}
@@ -23,11 +23,6 @@ ListItemBody.propTypes = {
   href: PropTypes.string,
   text: PropTypes.node,
 };
-ListItemBody.defaultProps = {
-  caption: null,
-  children: null,
-  href: null,
-  text: null,
-};
+// default values provided via function params
 
 export default withStyle(ListItemBody);

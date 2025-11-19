@@ -11,7 +11,7 @@ const getPaperProps = (height, rest) => {
   return { ...rest, css: nextCss };
 };
 
-const LinearProgress = ({ progress, height, ...rest }) => (
+const LinearProgress = ({ progress = null, height = 8, ...rest }) => (
   <Paper clip transparent hard {...getPaperProps(height, rest)}>
     <Atom />
     <Atom css={getProgressStyle(progress)} />
@@ -27,10 +27,7 @@ LinearProgress.propTypes = {
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
-LinearProgress.defaultProps = {
-  progress: null,
-  height: 8,
-};
+// default values provided via function parameters
 
 export const SimpleLinearProgress = LinearProgress;
 

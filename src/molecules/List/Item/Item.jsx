@@ -7,7 +7,20 @@ import withStyle from '../../../Theme/withStyle';
 import Body from './Body';
 
 const ListItem = forwardRef(
-  ({ BaseElement, center, children, css, element, href, reverse, small, ...props }, ref) => {
+  (
+    {
+      BaseElement = Paper,
+      center = false,
+      children,
+      css,
+      element = undefined,
+      href = null,
+      reverse = false,
+      small = false,
+      ...props
+    },
+    ref,
+  ) => {
     // eslint-disable-next-line react/prop-types
     const { autoHeight, blockLevel, textLeft, ...bodyProps } = props;
     return (
@@ -40,13 +53,6 @@ ListItem.propTypes = {
   reverse: PropTypes.bool,
   small: PropTypes.bool,
 };
-ListItem.defaultProps = {
-  BaseElement: Paper,
-  center: false,
-  element: undefined,
-  href: null,
-  reverse: false,
-  small: false,
-};
+// Default values provided via function params
 
 export default withStyle(ListItem);

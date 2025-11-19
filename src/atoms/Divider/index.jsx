@@ -4,9 +4,13 @@ import PropTypes from 'prop-types';
 import Atom from '../Atom';
 import withStyle from '../../Theme/withStyle';
 
-const Divider = ({ baseline, dotted, inset, invisible, ...rest }) => (
-  <Atom element="hr" {...rest} />
-);
+const Divider = ({
+  baseline = false,
+  dotted = false,
+  inset = false,
+  invisible = false,
+  ...rest
+}) => <Atom element="hr" {...{ baseline, dotted, inset, invisible, ...rest }} />;
 Divider.displayName = 'Divider';
 
 Divider.propTypes = {
@@ -19,12 +23,7 @@ Divider.propTypes = {
   /** Hide and keep the spase */
   invisible: PropTypes.bool,
 };
-Divider.defaultProps = {
-  baseline: false,
-  dotted: false,
-  inset: false,
-  invisible: false,
-};
+// default values are provided via function parameters
 
 export const StaticDivider = Divider;
 

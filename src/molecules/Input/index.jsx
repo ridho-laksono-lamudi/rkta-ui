@@ -5,15 +5,16 @@ import Base from './Base';
 import Container from './Container';
 
 const Input = ({
-  append,
-  defaultValue,
-  label,
-  onBlur,
-  onChange,
-  onFocus,
-  placeholder,
-  prepend,
-  value,
+  append = null,
+  defaultValue = '',
+  label = null,
+  onBlur = () => {},
+  onChange = () => {},
+  onFocus = () => {},
+  placeholder = null,
+  prepend = null,
+  value = null,
+  outlined = false,
   ...rest
 }) => {
   const [hasFocus, setHasFocus] = useState(false);
@@ -24,7 +25,7 @@ const Input = ({
   const labelIsActive = hasFocus || componentValue !== '';
   return (
     <Container
-      {...rest}
+      {...{ ...rest, outlined }}
       hasAddons={hasAddons}
       labelIsActive={labelIsActive}
       labelWidth={labelWidth}
@@ -69,17 +70,6 @@ Input.propTypes = {
   prepend: PropTypes.node,
   value: PropTypes.node,
 };
-Input.defaultProps = {
-  append: null,
-  defaultValue: '',
-  label: null,
-  onBlur() {},
-  onChange() {},
-  onFocus() {},
-  outlined: false,
-  placeholder: null,
-  prepend: null,
-  value: null,
-};
+// default values provided via function params
 
 export default Input;

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import Atom from '../Atom';
 import withStyle from '../../Theme/withStyle';
 
-const Addon = ({ children, fitAll, fitLeft, fitRight, ...props }) => (
-  <Atom element="span" {...props}>
+const Addon = ({ children, fitAll = false, fitLeft = false, fitRight = false, ...props }) => (
+  <Atom element="span" {...{ fitAll, fitLeft, fitRight, ...props }}>
     {children}
   </Atom>
 );
@@ -21,11 +21,7 @@ Addon.propTypes = {
   /** Reset Right Padding */
   fitRight: PropTypes.bool,
 };
-Addon.defaultProps = {
-  fitAll: false,
-  fitLeft: false,
-  fitRight: false,
-};
+// Default values are provided via function parameters
 
 export const RawAddon = Addon;
 

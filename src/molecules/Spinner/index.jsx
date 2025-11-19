@@ -5,7 +5,14 @@ import Atom from '../../atoms/Atom';
 import withStyle from '../../Theme/withStyle';
 import { getSegmentStyle } from './style';
 
-const Spinner = ({ borderWidth, children, color, css, getColor, size }) => (
+const Spinner = ({
+  borderWidth = '2.4px',
+  children = null,
+  color = null,
+  css,
+  getColor,
+  size = '24px',
+}) => (
   <Atom css={css}>
     <Atom css={getSegmentStyle(borderWidth, size, getColor(color))} />
     {children}
@@ -22,11 +29,6 @@ Spinner.propTypes = {
   size: PropTypes.string,
 };
 
-Spinner.defaultProps = {
-  borderWidth: '2.4px',
-  children: null,
-  color: null,
-  size: '24px',
-};
+// default values provided via function params
 
 export default withStyle(Spinner);

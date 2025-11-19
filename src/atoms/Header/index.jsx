@@ -12,7 +12,7 @@ const getFontProps = (level, rest) => {
   return { element: 'header', ...rest };
 };
 
-const Header = ({ children, level, ...rest }) => (
+const Header = ({ children = null, level = 1, ...rest }) => (
   <Font {...getFontProps(level, rest)}>{children}</Font>
 );
 
@@ -22,9 +22,6 @@ Header.propTypes = {
   level: PropTypes.number,
 };
 
-Header.defaultProps = {
-  children: null,
-  level: 1,
-};
+// default values provided via function params
 
 export default withStyle(Header);

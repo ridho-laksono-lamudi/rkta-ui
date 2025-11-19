@@ -4,7 +4,7 @@ import get from 'lodash/get';
 
 import Paper from '../../atoms/Paper';
 
-const TabsIndicator = ({ activeTab, color, height, domNode }) => {
+const TabsIndicator = ({ activeTab, color = undefined, height, domNode = null }) => {
   const tabNode = get(domNode, ['childNodes', activeTab]);
 
   if (!tabNode) return null;
@@ -29,9 +29,6 @@ TabsIndicator.propTypes = {
   height: PropTypes.number.isRequired,
   domNode: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
-TabsIndicator.defaultProps = {
-  color: undefined,
-  domNode: null,
-};
+// default values provided via function params
 
 export default TabsIndicator;

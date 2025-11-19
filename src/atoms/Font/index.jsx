@@ -9,7 +9,7 @@ const getFontProps = (color, getColor, rest) => {
   return { ...rest, css: nextCss };
 };
 
-const Font = forwardRef(({ children, getColor, color, ...rest }, ref) => (
+const Font = forwardRef(({ children = null, getColor, color = '', ...rest }, ref) => (
   <Atom element="span" atomRef={ref} {...getFontProps(color, getColor, rest)}>
     {children}
   </Atom>
@@ -23,9 +23,6 @@ Font.propTypes = {
   color: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   getColor: PropTypes.func.isRequired,
 };
-Font.defaultProps = {
-  children: null,
-  color: '',
-};
+// Default values provided via function params
 
 export default withStyle(Font);
