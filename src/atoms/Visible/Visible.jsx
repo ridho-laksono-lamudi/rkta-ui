@@ -33,12 +33,12 @@ class Visible extends Component {
 
   get clientContent() {
     const mq = mediaToString(this.clientQueries);
-    const { children } = this.props;
+    const { children = null } = this.props;
     return match(mq) ? children : null;
   }
 
   get serverContent() {
-    const { children, element } = this.props;
+    const { children = null, element = 'div' } = this.props;
     const mq = `@media ${mediaToString(this.serverQueries)}`;
     return (
       <Atom css={{ [mq]: { display: 'none' } }} element={element}>
@@ -60,10 +60,7 @@ Visible.propTypes = {
   children: PropTypes.node,
   element: PropTypes.string,
 };
-Visible.defaultProps = {
-  element: 'div',
-  children: null,
-};
+// default values are provided via destructuring in getters
 Visible.displayName = 'Visible';
 Visible.contextType = Context;
 

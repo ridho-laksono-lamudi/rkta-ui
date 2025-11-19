@@ -91,6 +91,12 @@ class Button extends Component {
     } = this.props;
 
     const { hasFocus, hasHighlight } = this.state;
+    // Provide local defaults for commonly optional props previously defined in defaultProps
+    const restProps = {
+      onPointerDown: onPointerDown || (() => {}),
+      onPointerUp: onPointerUp || (() => {}),
+      ...rest,
+    };
     return (
       <Paper
         button
@@ -98,7 +104,7 @@ class Button extends Component {
         tabIndex={0}
         atomRef={this.contentRef}
         color={color}
-        {...rest}
+        {...restProps}
         css={this.css}
         onBlur={this.handleBlur}
         onFocus={this.handleFocus}
@@ -110,7 +116,7 @@ class Button extends Component {
       >
         {!noRipple && (
           <Ripple
-            {...rest}
+            {...restProps}
             color={color}
             highlight={hasHighlight}
             forceShow={hasHighlight}
@@ -176,27 +182,7 @@ Button.propTypes = {
   vertical: PropTypes.bool,
 };
 
-Button.defaultProps = {
-  autoHeight: false,
-  blockLevel: false,
-  busy: false,
-  color: null,
-  css: {},
-  element: 'button',
-  fitAll: false,
-  fitLeft: false,
-  fitRight: false,
-  large: false,
-  noRipple: false,
-  onPointerDown() {},
-  onPointerUp() {},
-  outline: false,
-  round: false,
-  size: null,
-  small: false,
-  spinnerProps: null,
-  vertical: false,
-};
+// Default values for class props are now handled by local destructuring where applicable or fallbacks
 
 export const SimpleButton = Button;
 

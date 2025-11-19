@@ -34,16 +34,11 @@ export default class UiProvider extends Component {
     theme: PropTypes.shape(),
   };
 
-  static defaultProps = {
-    changeTheme() {},
-    location: null,
-    modifyElement: null,
-    theme: {},
-  };
+  // default values provided via local destructuring
 
   state = {
     touchDetected: false,
-    theme: modifyTheme(this.props.theme),
+    theme: modifyTheme(this.props.theme || {}),
   };
 
   componentDidMount() {
@@ -62,7 +57,7 @@ export default class UiProvider extends Component {
   untrackTouch = () => window.removeEventListener('touchstart', this.trackTouch);
 
   changeTheme = (...args) => {
-    const nextTheme = this.props.changeTheme(...args);
+    const nextTheme = (this.props.changeTheme || (() => ({})))(...args);
     this.setState({
       theme: modifyTheme(nextTheme),
     });
@@ -77,7 +72,7 @@ export default class UiProvider extends Component {
   render() {
     const { changeTheme } = this;
     const { touchDetected, theme } = this.state;
-    const { children, location, modifyElement } = this.props;
+    const { children, location = null, modifyElement = null } = this.props;
     return (
       <ThemeProvider theme={theme}>
         <Context.Provider

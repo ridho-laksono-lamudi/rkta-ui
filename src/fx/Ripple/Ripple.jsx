@@ -34,7 +34,7 @@ class Ripple extends Component {
   }
 
   get backgroundColor() {
-    const { color, getColor } = this.props;
+    const { color = null, getColor } = this.props;
     return getColor(color);
   }
 
@@ -120,7 +120,8 @@ class Ripple extends Component {
 
   render() {
     const { outline, waves } = this.state;
-    if (!this.props.forceShow && !outline && !waves.length) return null;
+    const { forceShow = false } = this.props;
+    if (!forceShow && !outline && !waves.length) return null;
     return (
       <Atom
         element="span"
@@ -158,9 +159,6 @@ Ripple.propTypes = {
   css: PropTypes.shape().isRequired,
   forceShow: PropTypes.bool,
 };
-Ripple.defaultProps = {
-  color: null,
-  forceShow: false,
-};
+// Default values for function props are provided via destructuring (see getters/render)
 
 export default withStyle(Ripple);

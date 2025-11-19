@@ -40,8 +40,6 @@ Label.propTypes = {
   outlined: PropTypes.bool.isRequired,
   setLabelWidth: PropTypes.func.isRequired,
 };
-Label.defaultProps = {
-  color: '',
-};
+// default values provided inline during rendering via font color default
 
 export default Label;
