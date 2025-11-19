@@ -18,7 +18,7 @@ class Tabs extends Component {
   }
 
   get children() {
-    const { children, color, noIndicator } = this.props;
+    const { children, color = 'text', noIndicator = false, onChange = () => {} } = this.props;
     const { activeTab } = this;
     const childrenArray = Children.toArray(children);
     return childrenArray.map((child, index) => {
@@ -29,7 +29,7 @@ class Tabs extends Component {
         hardBottom: noIndicator ? undefined : true,
         onClick: event => {
           this.setState({ activeTab: index });
-          this.props.onChange(index);
+          onChange(index);
           const { onClick } = child.props;
           if (typeof onClick === 'function') onClick(event);
         },
@@ -54,7 +54,6 @@ class Tabs extends Component {
       indicatorHeight,
       getColor,
       noIndicator,
-      onChange,
       reverse,
       right,
       ...rest
@@ -99,15 +98,7 @@ Tabs.propTypes = {
   right: PropTypes.bool,
 };
 
-Tabs.defaultProps = {
-  center: false,
-  color: 'text',
-  indicatorHeight: 2,
-  noIndicator: false,
-  onChange() {},
-  reverse: false,
-  right: false,
-};
+// Default values are provided by local destructuring in getters/render
 
 Tabs.displayName = 'Tabs';
 
