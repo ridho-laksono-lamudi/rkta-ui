@@ -57,11 +57,12 @@ class Visible extends Component {
 }
 
 Visible.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   element: PropTypes.string,
 };
 Visible.defaultProps = {
   element: 'div',
+  children: null,
 };
 Visible.displayName = 'Visible';
 Visible.contextType = Context;
