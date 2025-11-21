@@ -43,7 +43,7 @@ InputBase.propTypes = {
   outlined: PropTypes.bool,
   placeholder: PropTypes.node,
   setLabelWidth: PropTypes.func.isRequired,
-  value: PropTypes.node.isRequired,
+  value: PropTypes.node,
 };
 // Default values provided via function params
 

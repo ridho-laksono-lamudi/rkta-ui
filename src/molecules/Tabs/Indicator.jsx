@@ -26,7 +26,7 @@ const TabsIndicator = ({ activeTab, color = undefined, height = 48, domNode = nu
 TabsIndicator.propTypes = {
   activeTab: PropTypes.number.isRequired,
   color: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  height: PropTypes.number.isRequired,
+  height: PropTypes.number,
   domNode: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 // default values provided via function params
