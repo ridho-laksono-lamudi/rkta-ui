@@ -4,7 +4,14 @@ import PropTypes from 'prop-types';
 import { ListItem } from '../../List';
 import InputOutline from '../Outline';
 
-const InputContainer = ({ children, hasAddons, labelIsActive, labelWidth, outlined, ...rest }) => {
+const InputContainer = ({
+  children,
+  hasAddons = false,
+  labelIsActive,
+  labelWidth,
+  outlined,
+  ...rest
+}) => {
   const itemElement = hasAddons ? undefined : 'label';
   if (outlined) {
     return (
@@ -24,7 +31,7 @@ const InputContainer = ({ children, hasAddons, labelIsActive, labelWidth, outlin
 
 InputContainer.propTypes = {
   children: PropTypes.node.isRequired,
-  hasAddons: PropTypes.bool.isRequired,
+  hasAddons: PropTypes.bool,
   labelIsActive: PropTypes.bool.isRequired,
   labelWidth: PropTypes.number.isRequired,
   outlined: PropTypes.bool.isRequired,

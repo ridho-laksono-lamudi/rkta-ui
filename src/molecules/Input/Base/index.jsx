@@ -15,7 +15,7 @@ const InputBase = ({
   outlined = false,
   placeholder = null,
   setLabelWidth,
-  value,
+  value = '',
   ...rest
 }) => (
   <ListItemBody fitTop fitBottom>

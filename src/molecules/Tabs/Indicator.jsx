@@ -4,7 +4,7 @@ import get from 'lodash/get';
 
 import Paper from '../../atoms/Paper';
 
-const TabsIndicator = ({ activeTab, color = undefined, height, domNode = null }) => {
+const TabsIndicator = ({ activeTab, color = undefined, height = 48, domNode = null }) => {
   const tabNode = get(domNode, ['childNodes', activeTab]);
 
   if (!tabNode) return null;
