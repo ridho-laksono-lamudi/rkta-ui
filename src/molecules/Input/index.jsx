@@ -13,7 +13,7 @@ const Input = ({
   onFocus = () => {},
   placeholder = null,
   prepend = null,
-  value = null,
+  value = '',
   outlined = false,
   ...rest
 }) => {
