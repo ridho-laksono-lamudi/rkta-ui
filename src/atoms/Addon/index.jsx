@@ -4,8 +4,14 @@ import PropTypes from 'prop-types';
 import Atom from '../Atom';
 import withStyle from '../../Theme/withStyle';
 
-const Addon = ({ children, fitAll = false, fitLeft = false, fitRight = false, ...props }) => (
-  <Atom element="span" {...{ fitAll, fitLeft, fitRight, ...props }}>
+const Addon = ({
+  children,
+  fitAll = false, // eslint-disable-line no-unused-vars
+  fitLeft = false, // eslint-disable-line no-unused-vars
+  fitRight = false, // eslint-disable-line no-unused-vars
+  ...props
+}) => (
+  <Atom element="span" {...props}>
     {children}
   </Atom>
 );
