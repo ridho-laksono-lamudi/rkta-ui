@@ -5,12 +5,12 @@ import Atom from '../Atom';
 import withStyle from '../../Theme/withStyle';
 
 const Divider = ({
-  baseline = false,
-  dotted = false,
-  inset = false,
-  invisible = false,
+  baseline = false, // eslint-disable-line no-unused-vars
+  dotted = false, // eslint-disable-line no-unused-vars
+  inset = false, // eslint-disable-line no-unused-vars
+  invisible = false, // eslint-disable-line no-unused-vars
   ...rest
-}) => <Atom element="hr" {...{ baseline, dotted, inset, invisible, ...rest }} />;
+}) => <Atom element="hr" {...rest} />;
 Divider.displayName = 'Divider';
 
 Divider.propTypes = {

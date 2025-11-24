@@ -1,12 +1,6 @@
 import React, { Fragment } from 'react';
 
-import {
-  Divider,
-  Header,
-  Addon,
-  Input,
-  Paper,
-} from '../../../lib';
+import { Divider, Header, Addon, Input, Paper } from '../../../lib';
 
 import Archive from '../../../lib/entypo/Archive';
 import Cake from '../../../lib/entypo/Cake';
@@ -14,16 +8,11 @@ import Wallet from '../../../lib/entypo/Wallet';
 
 const paperStyle = { padding: '40px' };
 
-
 const Typography = () => (
   <Fragment>
-    <Header level={1}>
-      Input
-    </Header>
+    <Header level={1}>Input</Header>
     <Paper paper2 style={paperStyle}>
-      <Header h6>
-        Normal
-      </Header>
+      <Header h6>Normal</Header>
       <Divider />
       <Input
         // defaultValue="test input"
@@ -35,16 +24,14 @@ const Typography = () => (
     </Paper>
     <Divider invisible />
     <Paper paper2 style={paperStyle}>
-      <Header h6>
-        Normal
-      </Header>
+      <Header h6>Normal</Header>
       <Divider />
       <Input
-        append={(
+        append={
           <Addon>
             <Archive />
           </Addon>
-        )}
+        }
         defaultValue="test input"
         color="secondary"
         placeholder="A placeholder"
